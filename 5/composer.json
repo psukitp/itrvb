@@ -1,0 +1,22 @@
+{
+    "name": "psukitp/3",
+    "autoload": {
+        "psr-4": {
+            "my\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniil Myshkin",
+            "email": "jfellertv@gmail.com"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.00",
+        "ramsey/uuid": "^4.7",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}
