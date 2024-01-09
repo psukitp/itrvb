@@ -1,21 +1,21 @@
 CREATE TABLE users (
-    uuid UUID PRIMARY KEY,
+    uuid text PRIMARY KEY,
     username TEXT NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL
 );
-
 CREATE TABLE posts (
-    uuid UUID PRIMARY KEY,
-    FOREIGN KEY(author_uuid) REFERENCES users(uuid),
+    uuid text PRIMARY KEY,
+    author_uuid text,
     title TEXT NOT NULL,
-    text TEXT NOT NULL
-);
-
-CREATE TABLE comments (
-    uuid UUID PRIMARY KEY,
-    post_uuid UUID,
-    FOREIGN KEY(author_uuid) REFERENCES users(uuid),
     text TEXT NOT NULL,
+    FOREIGN KEY(author_uuid) REFERENCES users(uuid)
+);
+CREATE TABLE comments (
+    uuid UUtextID PRIMARY KEY,
+    post_uuid text,
+    author_uuid text,
+    text TEXT NOT NULL,
+    FOREIGN KEY(author_uuid) REFERENCES users(uuid),
     FOREIGN KEY(post_uuid) REFERENCES posts(uuid)
 );
