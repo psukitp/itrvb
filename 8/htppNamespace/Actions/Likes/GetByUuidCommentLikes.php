@@ -14,7 +14,7 @@ use my\Model\UUID;
 use my\Repositories\CommentLikeRepository;
 use my\Repositories\CommentLikeRepositoryInterface;
 
-class GetByUuidCommentLikes implements \http\Actions\ActionInterface
+class GetByUuidCommentLikes implements  ActionInterface
 {
     public function __construct(
         private CommentLikeRepositoryInterface $commentLikeRepository

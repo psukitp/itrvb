@@ -8,6 +8,7 @@ use PDO;
 use PDOException;
 use my\Model\Comment;
 use Psr\Log\LoggerInterface;
+use my\Repositories\CommentsRepositoryInterface;
 
 class CommentRepository implements CommentsRepositoryInterface
 {

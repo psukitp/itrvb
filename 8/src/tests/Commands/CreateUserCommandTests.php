@@ -1,6 +1,6 @@
 <?php
 
-namespace UnitTests\Commands;
+namespace tests\Commands;
 
 use my\Commands\Arguments;
 use my\Commands\CreateUserCommand;
@@ -11,7 +11,7 @@ use my\Model\User;
 use my\Model\UUID;
 use my\Repositories\UserRepositoryInterface;
 use PHPUnit\Framework\TestCase;
-use tests\DummyLogger;
+use my\tests\DummyLogger;
 
 class CreateUserCommandTests extends TestCase
 {

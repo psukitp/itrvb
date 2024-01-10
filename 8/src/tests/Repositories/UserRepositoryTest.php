@@ -1,6 +1,6 @@
 <?php
 
-namespace UnitTests\Repositories;
+namespace tests\Repositories;
 
 use my\Exceptions\UserNotFoundException;
 use my\Model\Name;
@@ -10,9 +10,9 @@ use my\Repositories\UserRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;
-use tests\DummyLogger;
+use my\tests\DummyLogger;
 
-class UserRepositoryTests extends TestCase
+class UserRepositoryTest extends TestCase
 {
     private $pdoMock;
     private $stmtMock;
@@ -38,6 +38,7 @@ class UserRepositoryTests extends TestCase
 
     public function testItSaveUserToDatabase(): void
     {
+        // Не понял, как сделать так, чтобы у меня Name преобразовывался к first_name и last_name. Но понимаю, что ошибка падает чисто из-за того, что массивы разные, хотя данные там одни и те же!
         $uuid = UUID::random();
 
         $this->stmtMock->expects($this->once())->method('execute')->with([

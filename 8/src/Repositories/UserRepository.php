@@ -34,8 +34,8 @@ class UserRepository implements UserRepositoryInterface
             throw new UserIncorrectDataException("User already exist with username " . $user->getUsername());
         }
 
-        $stmt = $this->pdo->prepare("INSERT INTO users(uuid, username, first_name, last_name)
-                                    VALUES (:uuid, :username, :first_name, :last_name),");
+        $stmt = $this->pdo->prepare("INSERT INTO users (uuid, username, first_name, last_name)
+        VALUES (:uuid, :username, :first_name, :last_name)");
 
         try {
             $stmt->execute([
@@ -69,7 +69,7 @@ class UserRepository implements UserRepositoryInterface
 
         $this->logger->info("User get by username successfully", ['uuid' => $result['uuid']]);
         return new User(
-            $result['uuid'],
+            new UUID($result['uuid']),
             $result['username'],
             new Name(
                 $result['first_name'],

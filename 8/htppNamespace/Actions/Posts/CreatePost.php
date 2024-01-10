@@ -2,6 +2,7 @@
 
 namespace htppNamespace\Actions\Posts;
 
+use Exception;
 use htppNamespace\Actions\ActionInterface;
 use htppNamespace\ErrorResponse;
 use htppNamespace\Request;
@@ -12,7 +13,7 @@ use my\Model\Post;
 use my\Model\UUID;
 use my\Repositories\PostRepository;
 
-class CreatePost implements \http\Actions\ActionInterface
+class CreatePost implements  ActionInterface
 {
     public function __construct(
         private PostRepository $postRepository
@@ -35,7 +36,7 @@ class CreatePost implements \http\Actions\ActionInterface
 
 
             return new SuccessfullResponse(['message' => 'Post created successfully']);
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return new ErrorResponse($ex->getMessage());
         }
     }

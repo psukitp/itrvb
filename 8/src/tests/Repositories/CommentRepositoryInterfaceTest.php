@@ -1,6 +1,6 @@
 <?php
 
-namespace UnitTests\Repositories;
+namespace tests\Repositories;
 
 use my\Exceptions\CommentNotFoundException;
 use my\Model\Comment;
@@ -9,13 +9,13 @@ use my\Repositories\CommentRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;
-use tests\DummyLogger;
+use my\tests\DummyLogger;
 
-class CommentRepositoryTests extends TestCase
+class CommentRepositoryInterfaceTest extends TestCase
 {
-    private $pdoMock;
-    private $stmtMock;
-    private $repo;
+    private PDO $pdoMock;
+    private PDOStatement $stmtMock;
+    private CommentRepository $repo;
 
     protected function setUp(): void
     {

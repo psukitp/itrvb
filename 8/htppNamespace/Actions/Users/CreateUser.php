@@ -15,7 +15,7 @@ use my\Model\UUID;
 use my\Repositories\UserRepository;
 use my\Repositories\UserRepositoryInterface;
 
-class CreateUser implements \http\Actions\ActionInterface
+class CreateUser implements  ActionInterface
 {
     public function __construct(
         private UserRepositoryInterface $userRepository,

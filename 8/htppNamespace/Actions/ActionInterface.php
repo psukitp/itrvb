@@ -1,8 +1,8 @@
 <?php
-namespace http\Actions;
+namespace htppNamespace\Actions;
 
-use http\Request;
-use http\Response;
+use htppNamespace\Request;
+use htppNamespace\Response;
 
 interface ActionInterface
 {

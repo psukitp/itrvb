@@ -1,5 +1,5 @@
 <?php
-namespace tests;
+namespace my\tests;
 
 class DummyLogger implements \Psr\Log\LoggerInterface
 {

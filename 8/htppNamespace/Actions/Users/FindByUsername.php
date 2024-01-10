@@ -10,7 +10,7 @@ use my\Exceptions\HttpException;
 use my\Exceptions\UserNotFoundException;
 use my\Repositories\UserRepositoryInterface;
 
-class FindByUsername implements \http\Actions\ActionInterface
+class FindByUsername implements ActionInterface
 {
     public function __construct(
         private UserRepositoryInterface $userRepository

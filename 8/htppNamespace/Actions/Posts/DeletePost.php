@@ -11,7 +11,7 @@ use my\Exceptions\HttpException;
 use my\Model\UUID;
 use my\Repositories\PostsRepositoryInterface;
 
-class DeletePost implements \http\Actions\ActionInterface
+class DeletePost implements  ActionInterface
 {
     public function __construct(
         private PostsRepositoryInterface $postRepository

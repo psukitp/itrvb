@@ -15,6 +15,6 @@ class Person
 
     public function __toString(): string
     {
-        return $this->name . ' (since' . $this->regiseredOn->format('Y-m-d') . ')';
+        return $this->name . ' (since ' . $this->regiseredOn->format('Y-m-d') . ')';
     }
 }

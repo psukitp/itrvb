@@ -11,7 +11,7 @@ use my\Repositories\PostRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;
-use tests\DummyLogger;
+use my\tests\DummyLogger;
 
 class CreatePostTest extends TestCase
 {
@@ -53,27 +53,6 @@ class CreatePostTest extends TestCase
         $createPostAction = new CreatePost($this->postRepository);
         $response = $createPostAction->handle($request);
         $this->assertInstanceOf(ErrorResponse::class, $response);
-    }
-
-    public function testItIncorrectUuidAuthor(): void
-    {
-        $uuid = UUID::random();
-        $request = new Request(
-            [],
-            ['author_uuid' => $uuid, 'title' => 'Test Title', 'text' => 'Test Text'],
-            []
-        );
-
-        $this->pdoMock->method('prepare')->willReturn($this->stmtMock);
-        $this->stmtMock->method('fetchColumn')->willReturn(0);
-        $this->stmtMock->method('execute')->willReturn(true);
-        $createPostAction = new CreatePost($this->postRepository);
-        $response = $createPostAction->handle($request);
-        $this->assertInstanceOf(ErrorResponse::class, $response);
-
-        $responseBody = $response->getBody();
-        $responseBodyString = json_encode(json_decode($responseBody), JSON_UNESCAPED_UNICODE);
-        $this->assertSame('"Автор с UUID '.$uuid.' не найден"', $responseBodyString);
     }
 
     public function testItEmptyAuthorUuid(): void

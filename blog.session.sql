@@ -19,3 +19,11 @@ CREATE TABLE comments (
     FOREIGN KEY(author_uuid) REFERENCES users(uuid),
     FOREIGN KEY(post_uuid) REFERENCES posts(uuid)
 );
+
+-- INSERT INTO users (uuid, username, first_name, last_name)
+-- VALUES (
+--     'uuid:1231-123-123-123-',
+--     'username:psukitp',
+--     'first_name:danil',
+--     'last_name:myshkin'
+--   );

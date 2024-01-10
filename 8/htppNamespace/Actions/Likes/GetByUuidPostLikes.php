@@ -13,7 +13,7 @@ use my\Model\PostLike;
 use my\Model\UUID;
 use my\Repositories\PostLikeRepositoryInterface;
 
-class GetByUuidPostLikes implements \http\Actions\ActionInterface
+class GetByUuidPostLikes implements  ActionInterface
 {
     public function __construct(
         private PostLikeRepositoryInterface $postLikeRepository

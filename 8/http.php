@@ -13,9 +13,6 @@ use htppNamespace\Actions\Users\CreateUser;
 use htppNamespace\Actions\Users\FindByUsername;
 use htppNamespace\ErrorResponse;
 use htppNamespace\Request;
-use my\Repositories\UserRepository;
-use my\Repositories\CommentRepository;
-use my\Repositories\PostRepository;
 use Psr\Log\LoggerInterface;
 
 
@@ -52,35 +49,19 @@ try {
 
 $routs = [
     'GET' => [
-        '/users/show' => new FindByUsername(
-            new UserRepository(
-                new PDO('sqlite:' . __DIR__ . '/db/blog.sqlite')
-            )
-        ),
+        '/users/show' => FindByUsername::class,
         '/likes/comment' => GetByUuidCommentLikes::class,
         '/likes/post' => GetByUuidPostLikes::class,
     ],
     'POST' => [
-        '/posts/comment' => new CreateComment(
-            new CommentRepository(
-                new PDO('sqlite:' . __DIR__ . '/db/blog.sqlite')
-            )
-        ),
-        '/posts/create' => new CreatePost(
-            new PostRepository(
-                new PDO('sqlite:' . __DIR__ . '/db/blog.sqlite')
-            )
-        ),
+        '/posts/comment' => CreateComment::class,
+        '/posts/create' => CreatePost::class,
         '/likes/post/' => CreatePostLike::class,
         '/likes/comment/' => CreateCommentLike::class,
-        '/user/' => CreateUser::class
+        '/user' => CreateUser::class
     ],
     'DELETE' => [
-        '/posts' => new DeletePost(
-            new PostRepository(
-                new PDO('sqlite:' . __DIR__ . '/db/blog.sqlite')
-            )
-        ),
+        '/posts' => DeletePost::class,
     ]
 ];
 

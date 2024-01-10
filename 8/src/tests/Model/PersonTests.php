@@ -16,7 +16,7 @@ class PersonTests extends TestCase
 
         $this->assertEquals(
             "fN lN (since " . $date->format('Y-m-d') . ')',
-            $person
+            $person->__toString()
         );
     }
 }

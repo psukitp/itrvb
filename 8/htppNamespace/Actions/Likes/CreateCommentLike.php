@@ -11,7 +11,7 @@ use my\Model\CommentLike;
 use my\Model\UUID;
 use my\Repositories\CommentLikeRepositoryInterface;
 
-class CreateCommentLike implements \http\Actions\ActionInterface
+class CreateCommentLike implements  ActionInterface
 {
     public function __construct(
         private CommentLikeRepositoryInterface $commentLikeRepository

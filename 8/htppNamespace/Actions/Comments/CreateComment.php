@@ -11,7 +11,7 @@ use my\Model\Comment;
 use my\Model\UUID;
 use my\Repositories\CommentsRepositoryInterface;
 
-class CreateComment implements \http\Actions\ActionInterface
+class CreateComment implements ActionInterface
 {
     public function __construct(
         private CommentsRepositoryInterface $commentRepository

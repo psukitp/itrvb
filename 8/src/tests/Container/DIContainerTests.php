@@ -2,6 +2,9 @@
 
 namespace tests\Container;
 
+use my\tests\Container\ClassDependingOnAnother;
+use my\tests\Container\SomeClassWithoutDependencies;
+use my\tests\Container\SomeClassWithParameter;
 use PHPUnit\Framework\TestCase;
 use my\Container\DIContainer;
 use my\Exceptions\ContainerNotFoundException;

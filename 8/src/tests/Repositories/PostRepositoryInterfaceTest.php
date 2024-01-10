@@ -1,6 +1,6 @@
 <?php
 
-namespace UnitTests\Repositories;
+namespace tests\Repositories;
 
 use my\Exceptions\PostNotFoundException;
 use my\Model\Post;
@@ -9,9 +9,9 @@ use my\Repositories\PostRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;
-use tests\DummyLogger;
+use my\tests\DummyLogger;
 
-class PostRepositoryTests extends TestCase
+class PostRepositoryInterfaceTest extends TestCase
 {
     private PDO $pdoMock;
     private PDOStatement $stmtMock;

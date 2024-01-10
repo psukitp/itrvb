@@ -3,6 +3,7 @@
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
+use my\Repositories\PostsRepositoryInterface;
 use Psr\Log\LoggerInterface;
 use my\Container\DIContainer;
 use my\Repositories\CommentLikeRepository;

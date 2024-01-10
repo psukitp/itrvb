@@ -8,8 +8,9 @@ use my\Model\UUID;
 use PDO;
 use PDOException;
 use Psr\Log\LoggerInterface;
+use my\Repositories\PostsRepositoryInterface;
 
-class PostRepository implements \PostsRepositoryInterface
+class PostRepository implements PostsRepositoryInterface
 {
 
     public function __construct(
@@ -37,8 +38,8 @@ class PostRepository implements \PostsRepositoryInterface
 
         $this->logger->info("Post get successfully", ['uuid' => $uuid]);
         return new Post(
-            $result['uuid'],
-            $result['author_uuid'],
+            new UUID($result['uuid']),
+            new UUID($result['author_uuid']),
             $result['title'],
             $result['text']
         );
@@ -62,7 +63,7 @@ class PostRepository implements \PostsRepositoryInterface
         }
     }
 
-    public function delete(string $uuid): void
+    public function delete(UUID $uuid): void
     {
         $stmt = $this->pdo->prepare("DELETE FROM posts WHERE uuid = :uuid");
         $stmt->execute([':uuid' => $uuid]);

@@ -11,7 +11,7 @@ use my\Repositories\UserRepository;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;
-use tests\DummyLogger;
+use my\tests\DummyLogger;
 
 class FindByUsernameTest extends TestCase
 {
